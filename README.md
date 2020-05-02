@@ -1,140 +1,151 @@
-# GitHub_class
+# Configurar herramientas
+Configura la información del usuario para todos los respositorios locales
+--
 
-# Create a Repository
-From scratch -- Create a new local
-repository
+`$ git config --global user.name "[name]"`
 
-` $ git init [project name] `
+Establece el nombre que estará asociado a tus commits
 
-Download from an existing repository
+`$ git config --global user.email "[email address]"`
 
-`$ git clone my_url`
+Establece el e-mail que estará asociado a sus commits
 
 
 
-# Observe your Repository
-List new or modified files not yet
-committed
+# Crear repositorios
+Inicializa un nuevo repositorio u obtiene uno de una URL existente
+--
+`$ git init [project-name]`
 
+Crea un nuevo repositorio local con el nombre especificado
+
+`$ git clone [url]`
+
+Descarga un proyecto y toda su historial de versiones
+
+
+# El archivo .gitgnore 
+
+A veces puede ser una buena idea excluir archivos de
+rastreado con Git. Esto normalmente se hace en un archivo especial llamado
+ .gitignore. Puedes encontrar plantillas útiles para .gitignore
+archivos en github.com/github/gitignore.
+
+ 
+
+# Efectuar cambios
+Revisa cambios y crea un commit
+--
 `$ git status`
 
-Show the changes to files not yet staged
+Enumera todos los archivos nuevos o modificados de los cuales se van a guardar cambios
 
 `$ git diff`
 
-Show the changes to staged files
-
-`$ git diff --cached`
-
-Show all staged and unstaged
-file changes
-
-`$ git diff HEAD`
-
-Show the changes between two
-commit ids
-
-`$ git diff commit1 commit2`
-
-List the change dates and authors
-for a file
-
-`$ git blame [file]`
-
-Show the file changes for a commit
-id and/or file
-
-`$ git show [commit]:[file]`
-
-Show full change history
-
-`$ git log`
-
-Show change history for file/directory
-including diffs
-
-`$ git log -p [file/directory]`
-
-
-# Working with Branches
-
-List all local branches
-
-`$ git branch`
-
-List all branches, local and remote
-
-`$ git branch -av`
-
-Switch to a branch, my_branch,
-and update working directory
-
-`$ git checkout my_branch`
-
-Create a new branch called new_branch
-
-`$ git branch new_branch`
-
-Delete the branch called my_branch
-
-`$ git branch -d my_branch`
-
-Merge branch_a into branch_b
-
-`$ git checkout branch_b`
-`$ git merge branch_a`
-
-Tag the current commit
-
-`$ git tag my_tag`
-
-# Make a change
-
-Stages the file, ready for commit
+Muestra las diferencias entre archivos que no se han enviado aún al área de espera
 
 `$ git add [file]`
 
-Stage all changed files, ready for commit
+Guarda el estado del archivo en preparación para realizar un commit
 
-`$ git add .`
+`$ git diff --staged`
 
-Commit all staged files to versioned history
-
-`$ git commit -m “commit message”`
-
-Commit all your tracked files to
-versioned history
-
-`$ git commit -am “commit message”`
-
-Unstages file, keeping the file changes
+Muestra las diferencias del archivo entre el área de espera y la última versión del archivo
 
 `$ git reset [file]`
 
-Revert everything to the last commit
+Mueve el archivo del área de espera, pero preserva su contenido
 
-`$ git reset --hard`
+`$ git commit -m"[descriptive message]"`
 
-# Synchronize
+Registra los cambios del archivo permanentemente en el historial de versiones
 
-Get the latest changes from origin
-(no merge)
+# Cambios grupales
+Nombra una serie de commits y combina esfuerzos ya completados
+--
 
-`$ git fetch`
+`$ git branch`
 
-Fetch the latest changes from origin
-and merge
+Enumera todas las ramas en el repositorio actual
+
+`$ git branch [branch-name]`
+
+Crea una nueva rama
+
+
+
+`$ git branch -av`
+Muestra todas las ramas, local y remoto
+
+
+`$ git checkout [branch-name]`
+
+Cambia a la rama especificada y actualiza el directorio activo
+
+`$ git merge [branch-name]`
+
+Combina el historial de la rama especificada con la rama actual
+
+`$ git branch -d [branch-name]`
+
+Borra la rama especificada
+
+
+
+# Repasar historial
+Navega e inspecciona la evolución de los archivos de proyecto
+--
+`$ git log`
+
+Enumera el historial de versiones para la rama actual
+
+`$ git log --follow [file]`
+
+Enumera el historial de versiones para el archivo, incluidos los cambios de nombre
+
+`$ git diff [first-branch]...[second-branch]`
+
+Muestra las diferencias de contenido entre dos ramas
+
+`$ git show [commit]`
+
+Produce metadatos y cambios de contenido del commit especificado
+
+
+# Rehacer commits
+Borra errores y elabora un historial de reemplazo
+--
+`$ git reset [commit]`
+
+Deshace todos los commits después de [commit], preservando los cambios localmente
+
+`$ git reset --hard [commit]`
+
+Desecha todo el historial y regresa al commit especificado
+
+
+# Sincronizar cambios
+Registrar un marcador para un repositorio e intercambiar historial de versiones
+--
+`$ git fetch [bookmark]`
+
+Descarga todo el historial del marcador del repositorio
+
+`$ git merge [bookmark]/[branch]`
+
+Combina la rama del marcador con la rama local actual
+
+`$ git push [alias] [branch]`
+
+Sube todos los commits de la rama local a GitHub
 
 `$ git pull`
 
-Fetch the latest changes from origin
-and rebase
+Descarga el historial del marcador e incorpora cambios
 
-`$ git pull --rebase`
 
-Push local changes to the origin
 
-`$ git push`
+
 
 
 ![image](https://user-images.githubusercontent.com/32286800/80853124-cc5a3880-8bf3-11ea-9cf7-505f4da30d1a.png)
